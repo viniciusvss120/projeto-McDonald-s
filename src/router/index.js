@@ -30,7 +30,7 @@ const routes = [
       },
       {
         path: '/cardapio/lancamento',
-        name: 'theAnuncios',
+        name: 'theLancamento',
         component: Lancamento,
         children: [
           {
@@ -52,6 +52,7 @@ const routes = [
       }
     ]
   }
+
 ]
 
 const router = new VueRouter({

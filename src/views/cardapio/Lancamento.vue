@@ -1,7 +1,6 @@
 <template>
   <div>
     <Produtos
-      @click="outProduto()"
       v-if="showProduto"
       :nossoprod="nossosProdutos"
       title="Lançamentos"
@@ -42,7 +41,7 @@ export default {
           nome: 'McCrispy Chicken Spicy Bacon'
         }
       ],
-      showProduto: false
+      showProduto: true
     }
   },
   methods: {

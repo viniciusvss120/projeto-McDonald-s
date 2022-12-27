@@ -7,11 +7,15 @@
     <section>
       <nav class="container">
         <div class="cardapio">
-          <aside class="nav" v-show="false">
+          <aside class="nav">
             <router-link to="/cardapio" class="list"> <img src="../img/cardapio/sidnav/bovino.png" alt="">Nossos produtos</router-link>
             <div class="nav-itens">
               <ul>
-                <li v-for="index in cardapio" :key="index.nome" @click="alterShowCardapio(index.nome)">
+                <li
+                  v-for="index in cardapio"
+                  :key="index.nome"
+                  @click="alterShowCardapio(index.nome)"
+                  >
                   <router-link :to="index.routerImg" class="sidnav">
                     <img :src="require(`../img/cardapio/sidnav/${index.img}`)" alt="">
                      <span>{{index.nome}}</span>
@@ -24,24 +28,17 @@
           <!-- navigatio -->
           <div class="itens-container">
             <div class="navigation">
-              <!-- <nav aria-label="breadcrumb" class="">
-                <ol class="breadcrumb navigation-itens ">
-                  <li class="breadcrumb-item"><a href="#">Home</a></li>
-                  <li class="breadcrumb-item"><a href="#">Library</a></li>
-                  <li class="breadcrumb-item active" aria-current="page">Data</li>
-                </ol>
-              </nav> -->
               <div class="navigation-itens">
                 <ul>
                   <li>
                     <router-link to="/">inicio</router-link>
                     <img src="https://www.mcdonalds.com.br/images/icons/actions-navigation-chevron-right-16.svg" alt="">
                   </li>
-                  <li @click="alterNavigation()">
+                  <li>
                     <router-link to="/cardapio" v-if="showCardapio">Cardapio</router-link>
                     <span v-else>Cardapio</span>
                   </li>
-                  <li v-show="showNavigation">
+                  <li v-show="showNavigation" @click="alterNavigation()">
                     <img src="https://www.mcdonalds.com.br/images/icons/actions-navigation-chevron-right-16.svg" alt="">
                      <!-- <router-link to="/cardapio/Lançamento" v-if="showLancamento">Lançamento</router-link> -->
                     <span>{{items}}</span>
