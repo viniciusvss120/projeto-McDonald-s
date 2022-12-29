@@ -2,7 +2,39 @@
   <div>
     <header class="container">
       <div class="nav-container">
-        <img class="img" src="../img/logo1.png" alt="logo">
+        <img class="img" src="../img/logo1.png" alt="logo" v-show="false">
+        <div class="nav-btn" v-show="false">
+          <a class="navbar-mobile">
+            <span class="barra"></span>
+            <span class="barra"></span>
+            <span class="barra negrito"></span>
+          </a>
+          <a href="#" class="app-mobile">
+            <img src="../img/image 3.png" alt="">
+            <span>Peça seu Méqui</span>
+          </a>
+        </div>
+        <nav class="nav-mobile">
+          <div class="mobile-logo">
+           <img class="img" src="../img/logo1.png" alt="logo">
+           <img class="fechar" src="../img/menu/fechar.png" alt="">
+          </div>
+          <div class="mobile-nav">
+            <div class="navigation-mobi">
+              <ul>
+                <li
+                  v-for="nav in navigation"
+                  :key="nav"
+                >
+                  {{nav}}
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" class="mcd-svg-more"><path fill="#292929" d="M7.076.925c-.367 0-.665.298-.665.665v4.821H1.59c-.367 0-.665.298-.665.665 0 .367.298.665.665.665h4.821v4.82c0 .368.298.666.665.666.367 0 .665-.298.665-.665V7.74h4.82c.368 0 .666-.298.666-.665 0-.367-.298-.665-.665-.665H7.74V1.59c0-.367-.298-.665-.665-.665z"></path></svg>
+                </li>
+              </ul>
+            </div>
+            <span class="separador"></span>
+            <div class="contato-mobile"></div>
+          </div>
+        </nav>
         <nav class="nav">
           <div class="contato">
             <ul>
@@ -13,11 +45,11 @@
             <div class="app">
               <a href="#" class="app-baixar">
                 <img src="../img/image 2.png" alt="">
-                Baixe o App
+                <span>Baixe o App</span>
               </a>
               <a href="#" class="app-peca">
                 <img src="../img/image 3.png" alt="">
-                Peça se Méqui
+                <span>Peça seu Méqui</span>
               </a>
             </div>
           </div>
@@ -40,7 +72,20 @@
 
 <script>
 export default {
-  name: 'theMenu'
+  name: 'theMenu',
+  data () {
+    return {
+      navigation: [
+        'Cardápio',
+        'Lançamento',
+        'Quem Somos',
+        'Família',
+        'Promoções',
+        'Méqui pra você',
+        'McDia Feliz'
+      ]
+    }
+  }
 }
 </script>
 
@@ -60,7 +105,7 @@ export default {
   }
   .container{
     max-width: 100%;
-    display: grid;
+    display: flex;
     /* grid-template-rows: 1fr 1fr; */
   }
   .nav-container{
@@ -69,24 +114,35 @@ export default {
     width: 100%;
     align-items: center;
     /* margin-left: 100px; */
-    box-shadow: 1px 0px 1px 0px rgb(235, 229, 229);
+    box-shadow: 0px 1px 2px 0px rgb(212, 211, 211);
     background: #fff;
     position: fixed;
     z-index: 4;
   }
   .img{
-    height: 90%;
+    max-width: 150px;
+    height: 50%;
     margin-left: 70px;
+    /* border: 1px solid #000; */
+  }
+  .fechar{
+    display: none;
   }
   .nav{
-    display: grid;
-    grid-template-rows: 1fr 70px;
-    width: 100%;
-    margin-left: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    /* border: 1px solid #000; */
+    /* display: grid;
+    grid-template-rows: 1fr 70px; */
+    max-width: 100%;
+    margin-left: 20px;
   }
   .contato{
     display: flex;
     justify-content: space-between;
+    width: 90%;
+    /* border: 1px solid #000; */
     align-items: center;
     margin-top: 0px;
   }
@@ -102,27 +158,32 @@ export default {
   .app{
     display: flex;
     align-items: center;
-    padding: 10px;
+    justify-content: center;
+    padding: 7px;
     height: 80%;
-    width: 30%;
-    margin-right: 200px;
+    width: 35%;
+    gap: 15px;
+    /* margin-right: 50px; */
   }
   .app a{
     display: flex;
-    margin-right: 30px;
+    /* margin-right: 30px; */
     /* margin-top: 20px; */
     font-size: 0.888rem;
-    padding: 10px;
-    width: 450px;
+    width: 200px;
+    padding: 7px;
+    /* border: 1px solid #000; */
     justify-content: center;
     align-items: center;
   }
   .app-peca{
     background: #ffb800;
+    /* width: 500px; */
     border-radius: 4px;
   }
   .app .app-baixar{
     display: flex;
+    /* width: 500px; */
     align-content: center;
     /* border: 1px solid #000; */
   }
@@ -131,25 +192,125 @@ export default {
   }
   .menu{
     display: flex;
-    align-items: end;
-    max-height: 100%;
-    /* margin-bottom: 10px; */
+    align-content: center;
+    height: 70px;
+    /* border: 1px solid #000; */
+    margin-bottom: 10px;
   }
   .menu ul{
     display: flex;
-    gap: 40px;
-    margin-top: 30px;
+    align-items: flex-end;
+    /* border: 1px solid #000; */
+    gap: 35px;
+    /* margin-top: 30px; */
   }
   .menu ul li{
     display: flex;
-    align-items: flex-end;
-    font-size: 1.25rem;
+    font-size: 1.15rem;
     border-bottom: 1px solid #000;
-    padding: 10px;
+    padding-bottom: 10px;
   }
   .menu ul li a{
     color: #292929;
   }
 
-  /* Banner */
+  /* Navbar-mobile */
+  .barra{
+    width: 100%;
+    height: 2px;
+    background: #000;
+  }
+  .app-mobile{
+    display: none;
+  }
+  .negrito{
+    height: 3px;
+  }
+  .navigation-mobi{
+    display: none;
+  }
+
+  /* responsivo */
+  @media (max-width: 1020px){
+    .contato ul{
+      display: none;
+    }
+    .app{
+      display: none;
+    }
+    .menu{
+      display: none;
+    }
+
+    .navbar-mobile{
+      margin: 0px;
+      padding: 0px;
+      display: grid;
+      width: 20px;
+      height: 18px;
+      cursor: pointer;
+      /* border: 1px solid #000; */
+    }
+    .nav-container{
+      display: flex;
+      height: initial;
+      /* border: 1px solid #000; */
+      /* gap: 5px; */
+      /* align-items: center; */
+    }
+    .img{
+      /* border: 1px solid #000; */
+      width: 60px;
+      height: 48%;
+      margin-left: 20px;
+
+    }
+    .nav-btn{
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      /* border: 1px solid #000; */
+    }
+    .app-mobile{
+      /* border: 1px solid #000; */
+      width: 20%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 5px;
+      background: #ffb800;
+    }
+    .app-mobile img{
+      width: 15%;
+    }
+
+    .nav-mobile{
+      width: 100%;
+    }
+    .mobile-logo{
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      /* border: 1px solid #000; */
+    }
+    .fechar{
+      display: inherit;
+      width: 25px;
+      height: 20px;
+    }
+
+    .navigation-mobi ul{
+      display: block;
+      max-width: 100%;
+      margin-left: 40px;
+    }
+    .navigation-mobi ul li{
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+  }
 </style>

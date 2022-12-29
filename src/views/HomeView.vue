@@ -4,18 +4,10 @@
       <Menu />
       <Banner />
     </header>
-    <section>
-      <Cards />
-      <Cards />
-      <Cards />
-      <Cards />
-      <Cards />
-      <Cards />
+    <section class="card">
       <Cards />
     </section>
     <section class="servico">
-      <Servico />
-      <Servico />
       <Servico />
     </section>
     <footer>
@@ -45,13 +37,6 @@ export default {
 </script>
 
 <style scoped>
-  section{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: start;
-    margin: 0 180px;
-    gap: 50px;
-  }
   .servico{
     margin: 50px 180px;
 

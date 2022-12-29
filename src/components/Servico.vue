@@ -1,23 +1,57 @@
 <template>
   <div>
-    <article class="container">
-      <div class="img">
-        <img src="../img/card1.png" alt="">
-      </div>
-      <div class="descricao">
-        <div class="info">
-          <h4>Que tal um #MéquiNoSofá?</h4>
-          <p>Faça agora seu pedido e receba em casa pelo delivery.</p>
-        </div>
-        <a href="#">Eu quero</a>
-      </div>
+    <article
+      class="article"
+    >
+      <ul>
+        <li
+          class="container"
+          v-for="card in cards"
+          :key="card.id"
+        >
+          <div class="img">
+            <img :src="require(`../img/cards/${card.img}`)" alt="">
+          </div>
+          <div class="descricao">
+            <div class="info">
+              <h4>{{card.titulo}}</h4>
+              <p>{{card.descricao}}</p>
+            </div>
+            <a href="#">{{card.btn}}</a>
+          </div>
+        </li>
+      </ul>
+
     </article>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'theCards'
+  name: 'theServico',
+  cards: [
+    {
+      id: 1,
+      img: 'sofa.png',
+      titulo: 'Que tal um #MéquiNoSofá?',
+      descricao: 'Faça agora seu pedido e receba em casa pelo delivery',
+      btn: 'Clique aqui'
+    },
+    {
+      id: 2,
+      img: 'campanha.png',
+      titulo: 'Confira as medidas que o Méqui adotou!',
+      descricao: 'Juntos, vamos sair dessa ainda mais fortes, preparados e unidos.',
+      btn: 'Clique aqui'
+    },
+    {
+      id: 3,
+      img: 'cidade.png',
+      titulo: 'Encontre o Méqui mais próximo de vc',
+      descricao: 'Deixamos ainda mais fácil! Ative sua geolocalização e mostraremos o restaurante McDonalds mais próximo de você.',
+      btn: 'Clique aqui'
+    }
+  ]
 }
 </script>
 
