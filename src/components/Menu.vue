@@ -3,7 +3,7 @@
     <header class="container">
       <div class="nav-container">
         <img class="img" src="../img/logo1.png" alt="logo" v-show="false">
-        <div class="nav-btn" v-show="false">
+        <div class="nav-btn" v-show="true">
           <a class="navbar-mobile">
             <span class="barra"></span>
             <span class="barra"></span>
