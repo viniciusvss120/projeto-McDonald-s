@@ -37,6 +37,9 @@ export default {
 </script>
 
 <style scoped>
+  .card{
+    /* max-width: 100%; */
+  }
   .servico{
     margin: 50px 180px;
 

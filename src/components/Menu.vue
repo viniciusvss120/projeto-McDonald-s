@@ -2,31 +2,31 @@
   <div>
     <header class="container">
       <div class="nav-container">
-        <img class="img" src="../img/logo1.png" alt="logo" v-show="false">
-        <div class="nav-btn" v-show="true">
-          <a class="navbar-mobile">
+        <img class="img" src="../img/logo1.png" alt="logo" v-show="!menu">
+        <div class="nav-btn"  v-show="!menu">
+          <a class="navbar-mobile" @click="aparecerMenu()">
             <span class="barra"></span>
             <span class="barra"></span>
             <span class="barra negrito"></span>
           </a>
-          <a href="#" class="app-mobile">
+          <!-- <a href="#" class="app-mobile">
             <img src="../img/image 3.png" alt="">
             <span>Peça seu Méqui</span>
-          </a>
+          </a> -->
         </div>
         <nav class="nav-mobile">
           <div class="mobile-logo">
-           <img class="img" src="../img/logo1.png" alt="logo">
-           <img class="fechar" src="../img/menu/fechar.png" alt="">
+           <img class="img" src="../img/logo1.png" alt="logo" v-show="menu">
+           <img class="fechar" src="../img/menu/fechar.png" v-show="menu" @click="aparecerMenu()">
           </div>
           <div class="mobile-nav">
-            <div class="navigation-mobi">
-              <ul>
+            <div :class="showMenu">
+              <ul v-show="menu">
                 <li
                   v-for="nav in navigation"
                   :key="nav"
                 >
-                  {{nav}}
+                  <router-link :to="nav.router">{{nav.name}}</router-link>
                   <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" class="mcd-svg-more"><path fill="#292929" d="M7.076.925c-.367 0-.665.298-.665.665v4.821H1.59c-.367 0-.665.298-.665.665 0 .367.298.665.665.665h4.821v4.82c0 .368.298.666.665.666.367 0 .665-.298.665-.665V7.74h4.82c.368 0 .666-.298.666-.665 0-.367-.298-.665-.665-.665H7.74V1.59c0-.367-.298-.665-.665-.665z"></path></svg>
                 </li>
               </ul>
@@ -76,14 +76,59 @@ export default {
   data () {
     return {
       navigation: [
-        'Cardápio',
-        'Lançamento',
-        'Quem Somos',
-        'Família',
-        'Promoções',
-        'Méqui pra você',
-        'McDia Feliz'
-      ]
+        {
+          name: 'Cardápio',
+          router: '/cardapio'
+
+        },
+        {
+          name: 'Lançamento',
+          router: '/cardapio'
+
+        },
+        {
+          name: 'Quem Somos',
+          router: '/cardapio'
+
+        },
+        {
+          name: 'Família',
+          router: '/cardapio'
+
+        },
+        {
+          name: 'Promoções',
+          router: '/cardapio'
+
+        },
+        {
+          name: 'Méqui pra você',
+          router: '/cardapio'
+
+        },
+        {
+          name: 'McDia Feliz',
+          router: '/cardapio'
+
+        }
+      ],
+      menu: false
+    }
+  },
+  computed: {
+    showMenu () {
+      const menu = this.menu ? 'navigation-mobi' : ''
+
+      return menu
+    }
+  },
+  methods: {
+    aparecerMenu () {
+      if (!this.menu) {
+        this.menu = true
+      } else {
+        this.menu = false
+      }
     }
   }
 }
@@ -104,7 +149,7 @@ export default {
     list-style: none;
   }
   .container{
-    max-width: 100%;
+    width: 100%;
     display: flex;
     /* grid-template-rows: 1fr 1fr; */
   }
@@ -231,7 +276,8 @@ export default {
   }
 
   /* responsivo */
-  @media (max-width: 1020px){
+  @media only screen and (max-width: 1000px) and (min-width: 350px){
+
     .contato ul{
       display: none;
     }
@@ -242,6 +288,9 @@ export default {
       display: none;
     }
 
+    .nav-mobile{
+      max-width: 100%;
+    }
     .navbar-mobile{
       margin: 0px;
       padding: 0px;
@@ -254,7 +303,7 @@ export default {
     .nav-container{
       display: flex;
       height: initial;
-      /* border: 1px solid #000; */
+      width: 100%;
       /* gap: 5px; */
       /* align-items: center; */
     }
@@ -301,7 +350,9 @@ export default {
       width: 25px;
       height: 20px;
     }
-
+    .navigation-mobi{
+      display: block;
+    }
     .navigation-mobi ul{
       display: block;
       max-width: 100%;

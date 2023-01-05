@@ -23,14 +23,15 @@ export default {
     margin: 0px;
   }
   .container{
-    max-width: 100vw;
-    height: 690px;
-    margin: 120px auto 50px auto;
-    /* border: 1px solid #000; */
+    width: 100vw;
+    height: 650px;
+    margin: 130px auto 30px auto;
+    border: 1px solid #000;
   }
 
-  img{
-    max-width: 100%;
+  .container img{
+    width: 100%;
+    height: 100%;
   }
   .descricao{
     display: grid;
@@ -57,5 +58,35 @@ export default {
     padding: 15px;
     background: #ffb800;
     max-width: 120px;
+  }
+
+  /* responsivo */
+  @media only screen and (max-width: 1000px) and (min-width: 350px) {
+    img{
+      max-width: 100%;
+      height: 50%;
+    }
+    .container{
+      position: relative;
+      height: 350px;
+      margin: 130px auto 30px auto;
+    }
+    .descricao{
+      position: absolute;
+      top: 140px;
+      left: -80px;
+      max-width: 45%;
+    }
+    .descricao h2{
+      font-size: 1.125rem;
+    }
+    .descricao p{
+      font-size: 0.785rem;
+      font-weight: 500;
+    }
+    .btn{
+      padding: 8px;
+      max-width: 120px;
+    }
   }
 </style>

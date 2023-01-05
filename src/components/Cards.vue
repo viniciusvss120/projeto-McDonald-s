@@ -89,30 +89,33 @@ export default {
     margin: 0px;
     list-style: none;
   }
+  .article{
+    width: 100vw;
+  }
   .article ul{
     display: flex;
     flex-wrap: wrap;
     margin: 0 180px;
-    gap: 50px;
+    gap: 15px;
   }
   .container{
-    width: 550px;
+    width: 580px;
     /* margin-bottom: 10px; */
     border-radius: 5px;
     box-shadow: 0px 1px 2px 0px #000;
   }
   .img{
-    max-width: 100%;
+    /* max-width: 100%; */
     /* border: 1px solid #000; */
   }
   .img img{
-    max-width: 100%;
+    width: 100%;
   }
   .descricao{
     display: flex;
     flex-wrap: wrap;
     margin: 0 auto;
-    max-width: 480px;
+    max-width: 450px;
     /* border: 1px solid #000; */
     margin-top: 20px;
     /* margin-bottom: 60px; */
@@ -133,5 +136,20 @@ export default {
     margin: 0 auto;
     margin-bottom: 30px;
     margin-top: 30px;
+  }
+
+  /* responsivo */
+
+  @media only screen and (max-width: 1000px) and (min-width: 350px){
+    .article{
+      width: 100%;
+    }
+    .article ul{
+      margin: 0 auto;
+    }
+    .container{
+      width: 500PX;
+      margin: 0px;
+    }
   }
 </style>
