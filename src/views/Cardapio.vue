@@ -57,7 +57,25 @@
     <section>
       <nav class="container">
         <div class="cardapio">
-          <!-- navigatio -->
+
+          <aside class="nav">
+            <router-link to="/cardapio" class="list"> <img src="../img/cardapio/sidnav/bovino.png" alt="">Nossos produtos</router-link>
+            <div class="nav-itens">
+              <ul>
+                <li
+                  v-for="index in cardapio"
+                  :key="index.nome"
+                  @click="alterShowCardapio(index.nome)"
+                  >
+                  <router-link :to="index.routerImg" class="sidnav">
+                    <img :src="require(`../img/cardapio/sidnav/${index.img}`)" alt="">
+                     <span>{{index.nome}}</span>
+                  </router-link>
+                </li>
+              </ul>
+            </div>
+          </aside>
+                    <!-- navigatio -->
           <div class="itens-container">
             <div class="navigation">
               <div class="navigation-itens">
@@ -82,24 +100,6 @@
               <router-view />
             </div>
           </div>
-
-          <aside class="nav">
-            <router-link to="/cardapio" class="list"> <img src="../img/cardapio/sidnav/bovino.png" alt="">Nossos produtos</router-link>
-            <div class="nav-itens">
-              <ul>
-                <li
-                  v-for="index in cardapio"
-                  :key="index.nome"
-                  @click="alterShowCardapio(index.nome)"
-                  >
-                  <router-link :to="index.routerImg" class="sidnav">
-                    <img :src="require(`../img/cardapio/sidnav/${index.img}`)" alt="">
-                     <span>{{index.nome}}</span>
-                  </router-link>
-                </li>
-              </ul>
-            </div>
-          </aside>
         </div>
       </nav>
     </section>

@@ -2,7 +2,7 @@
   <div>
     <header class="container">
       <div class="nav-container">
-        <img class="img" src="../img/logo1.png" alt="logo" v-show="!menu">
+        <router-link to="/"><img class="img" src="../img/logo1.png" alt="logo" v-show="!menu"></router-link>
         <div class="nav-btn"  v-show="!menu">
           <a class="navbar-mobile" @click="aparecerMenu()">
             <span class="barra"></span>

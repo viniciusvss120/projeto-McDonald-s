@@ -55,10 +55,7 @@ export default {
     max-width: 100%;
     /* border: 1px solid #000; */
   }
-  img{
-    max-width: 90%;
-    margin: 15px 0px;
-  }
+
   .itens{
     margin-top: 50px;
   }
@@ -72,16 +69,18 @@ export default {
   .itens ul li{
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-    max-width: 35%;
+    max-width: 28%;
     /* border: 1px solid #000; */
   }
   .produtos{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    display: grid;
+    /* flex-wrap: wrap; */
+    justify-items: center;
     align-content: center;
-    width: 100%;
+    margin: 15px 0px;
+  }
+  .produtos img{
+    max-width: 60%;
     margin: 15px 0px;
   }
   .produtos span{
