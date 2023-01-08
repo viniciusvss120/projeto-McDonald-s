@@ -3,21 +3,22 @@
     <footer>
       <div class="baixar-app">
         <div class="container">
-          <div class="img">
-            <img src="../img/footer.png" alt="">
-          </div>
+
           <div class="descricao">
-            <h2>Já baixou o nosso App?</h2>
-            <p>Peça seu delivery, veja o menu, baixe stickers, peça e retire, encontre os restaurantes mais próximos, tenha todos os cupons e muito mais.</p>
+            <img src="../img/footer.png" alt="">
+            <div class="title">
+              <h2>Já baixou o nosso App?</h2>
+              <p>Peça seu delivery, veja o menu, baixe stickers, peça e retire, encontre os restaurantes mais próximos, tenha todos os cupons e muito mais.</p>
+            </div>
           </div>
           <div class="baixa">
             <a href="#">Baixe agora</a>
           </div>
         </div>
       </div>
-      <div class="chedar">
+      <!-- <div class="chedar">
         <svg xmlns="http://www.w3.org/2000/svg" width="1047" height="53" viewBox="0 0 1047 53"><g fill="#FFBC0D"><path d="M783 0h8.898c27.346 1.109 41.205 29.39 70.124 24.947 10.435-1.602 19.12-7.673 30.019-7.762 26.084-.21 38.888 29.7 63.222 34.884 7.298 1.555 14.958 1.35 21.71-2.062 5.922-2.992 10.522-7.947 14.51-13.13 6.888-8.958 13.024-18.669 21.26-26.511 4.48-4.262 9.887-8.221 16.028-9.521 2.384-.506 4.793-.72 7.207-.845H1046M0 0c95.445 0 125.033 46.115 167.984 46.115C219.525 46.115 251.974 0 325.469 0c53.687 0 70.33 25.94 94.489 25.94C448.951 25.94 467.205 0 508.544 0" transform="translate(.32)"></path></g></svg>
-      </div>
+      </div> -->
       <div class="info">
         <nav class="info-container">
           <ul class="info-title">
@@ -78,7 +79,25 @@
         </nav>
       </div>
 
+      <div class="info-mobile">
+        <nav class="info-container-mobile">
+          <ul class="info-title-mobile">
+            <li
+              class="info-colum-mobile"
+              v-for="(nav, index) in navFooter"
+              :key="index"
+            >
+              <div class="titulo">
+                <h5>{{nav}}</h5>
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" class="mcd-svg-more"><path fill="#292929" d="M7.076.925c-.367 0-.665.298-.665.665v4.821H1.59c-.367 0-.665.298-.665.665 0 .367.298.665.665.665h4.821v4.82c0 .368.298.666.665.666.367 0 .665-.298.665-.665V7.74h4.82c.368 0 .666-.298.666-.665 0-.367-.298-.665-.665-.665H7.74V1.59c0-.367-.298-.665-.665-.665z"></path></svg>
+              </div>
+            </li>
+          </ul>
+        </nav>
+      </div>
+
       <div class="rede-social">
+        <div class="social-container">
         <div class="social">
           <ul>
             <li>
@@ -104,6 +123,7 @@
 
           </ul>
         </div>
+
         <div class="store">
           <ul>
             <li>
@@ -118,6 +138,7 @@
             </li>
           </ul>
 
+        </div>
         </div>
       </div>
       <div class="linha">
@@ -140,7 +161,12 @@
 
 <script>
 export default {
-  name: 'theFooter'
+  name: 'theFooter',
+  data () {
+    return {
+      navFooter: ['Quem somos', 'Família', 'Méqui para você', 'Contato']
+    }
+  }
 }
 </script>
 
@@ -151,31 +177,40 @@ export default {
     text-decoration: none;
     list-style: none;
   }
+  footer{
+    width: 100%;
+  }
   .baixar-app{
-    max-width: 100vw;
+    width: 100%;
     /* margin-bottom: 20px; */
     /* border: 1px solid #000; */
     background: #ffb800;
   }
   .container{
     display: grid;
-    grid-template-columns: auto 1fr 350px;
+    grid-template-columns: 1fr 350px;
     max-width: 85%;
     align-items: center;
     margin: 0 auto;
-    /* border: 1px solid #000; */
-  }
-
-  .img img{
-    max-width: 100%;
-    height: 150px;
-    margin: 10px auto;
   }
   .descricao{
+    display: flex;
+    justify-content: space-around;
     max-width: 100%;
-    padding: 10px 15px;
-    margin: 0 30px;
-    /* border: 1px solid #000; */
+    padding: 10px 5px;
+    /* gap: 50px; */
+    /* margin: 0 auto; */
+  }
+  .title{
+    width: 70%;
+  }
+  .title p{
+    width: 100%;
+  }
+  .descricao img{
+    /* width: 100%; */
+    height: 150px;
+    /* margin: 10px auto; */
   }
   .descricao h2{
     font-weight: 800;
@@ -213,8 +248,14 @@ export default {
     margin: 0 5px auto 100px;
     /* border: 1px solid #000; */
   }
+  .info-mobile{
+    display: none;
+  }
   .titulo{
-    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 20px;
   }
   .titulo h5{
     color: #858585;
@@ -234,11 +275,14 @@ export default {
   }
 
   .rede-social{
-    max-width: 100%;
-    height: 50px;
-    /* border: 1px solid #000; */
+    width: 100%;
+    /* height: 50px; */
     margin: 30px auto 10px auto;
+  }
+  .social-container{
+    width: 100%;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
   }
@@ -248,21 +292,23 @@ export default {
   }
   .social ul{
     display: flex;
-    width: 100%;
+    /* width: 100%; */
     align-items: center;
     margin-left: 110px;
+    /* border: 1px solid #000; */
     gap: 15px;
   }
 
   .store{
-    width: 50%;
+    /* width: 50%; */
   }
   .store ul{
     display: flex;
-    gap: 15px;
+    gap: 20px;
     justify-content: center;
     align-items: center;
-    /* margin-right: 100px; */
+    /* border: 1px solid #000; */
+    margin-right: 200px;
   }
   .store-img{
     height: 45px;
@@ -279,6 +325,7 @@ export default {
   .privacidade{
     display: flex;
     max-width: 100%;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 20px;
@@ -304,5 +351,61 @@ export default {
     max-width: 100%;
     height: 50px;
   }
+
+  /* responsivo */
+  @media only screen and (max-width: 1000px) and (min-width: 350px) {
+    .container{
+      display: flex;
+      /* grid-template-columns: 100%; */
+      /* margin: 0px;
+      padding: 0px; */
+      flex-wrap: wrap;
+      max-width: 100%;
+    }
+
+    .descricao{
+      gap: 30px;
+      margin: 0px;
+      width: 100%;
+    }
+    .descricao h2{
+    font-weight: 800;
+    font-size: 28px;
+    }
+    .descricao img{
+      height: 100px;
+    }
+    .title{
+      width: 100%;
+    }
+    .title p{
+      font-size: 0.900rem;
+      margin-top: 15px;
+    }
+
+    .info{
+      display: none;
+    }
+    .info-mobile{
+      display: block;
+    }
+
+    .baixa{
+      margin: 20px auto;
+    }
+
+    .store{
+      margin: 20px 50px;
+    }
+
+    .linha{
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    .logotipo{
+      margin-left: 50px;
+    }
+}
 
 </style>
